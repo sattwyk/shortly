@@ -4,13 +4,17 @@ import { useState } from "react";
 import Shorten from "./Shorten";
 
 export default function Link() {
-  const [apiData, setApiData] = useState({
-    orignalLink: "",
-    shortLink: "",
-    success: false,
-  });
+  const [apiData, setApiData] = useState([]);
 
   const [fullLink, setFullLink] = useState("");
+
+  const shortenElements = apiData.map((data) => (
+    <Shorten
+      id={data.id}
+      orignalLink={data.orignalLink}
+      shortLink={data.shortLink}
+    />
+  ));
 
   function handleChange(event) {
     const { value } = event.target;
@@ -20,12 +24,15 @@ export default function Link() {
   async function handleClick() {
     const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${fullLink}`);
     const data = await res.json();
-    await setApiData((prevData) => ({
+    await setApiData((prevData) => [
       ...prevData,
-      orignalLink: fullLink,
-      shortLink: data.result.short_link,
-      success: true,
-    }));
+      {
+        id: prevData.length + 1,
+        orignalLink: fullLink,
+        shortLink: data.result.short_link,
+        success: true,
+      },
+    ]);
     // console.log(shortUrlList);
   }
 
@@ -47,12 +54,7 @@ export default function Link() {
           Shorten it!
         </button>
       </div>
-      {apiData.success && (
-        <Shorten
-          orignalLink={apiData.orignalLink}
-          shortLink={apiData.shortLink}
-        />
-      )}
+      {apiData.length > 0 && shortenElements}
     </div>
   );
 }

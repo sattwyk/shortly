@@ -12,7 +12,7 @@ export default function Hero() {
         links are performing.
       </p>
       <a
-        className="ml-20 px-3 py-1 rounded-2xl bg-teal-400 text-sm text-white"
+        className="ml-20 px-3 py-1 rounded-2xl bg-teal-400 text-sm text-slate-50"
         href=""
       >
         Get Started

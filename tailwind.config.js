@@ -8,6 +8,7 @@ module.exports = {
       backgroundImage: {
         "hero-illustration": "url('/src/assets/illustration-working.svg')",
         "shorten-bg": "url('/src/assets/bg-shorten-desktop.svg')",
+        "boost-bg": "url('/src/assets/bg-boost-desktop.svg')",
       },
     },
   },

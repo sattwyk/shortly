@@ -10,7 +10,7 @@ export default function Link() {
 
   const shortenElements = apiData.map((data) => (
     <Shorten
-      id={data.id}
+      key={data.id}
       orignalLink={data.orignalLink}
       shortLink={data.shortLink}
     />
@@ -27,7 +27,7 @@ export default function Link() {
     await setApiData((prevData) => [
       ...prevData,
       {
-        id: prevData.length + 1,
+        id: apiData.length + 1,
         orignalLink: fullLink,
         shortLink: data.result.short_link,
         success: true,
@@ -38,7 +38,7 @@ export default function Link() {
 
   return (
     <div>
-      <div className="flex bg-shorten-bg bg-slate-800 items-center justify-center gap-5 mx-20 mt-10 px-10 py-10 rounded-md">
+      <div className="flex bg-shorten-bg bg-slate-800 bg-cover items-center justify-center gap-5 mx-20 mt-10 px-10 py-10 rounded-md">
         <input
           className="w-4/5 py-2 px-3 text-xs rounded-md"
           type="text"

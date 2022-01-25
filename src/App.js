@@ -2,6 +2,8 @@ import "./App.css";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Link from "./components/Link";
+import Boost from "./components/Boost";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -9,6 +11,8 @@ function App() {
       <Header />
       <Hero />
       <Link />
+      <Boost />
+      <Footer />
     </div>
   );
 }

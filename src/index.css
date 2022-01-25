@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @layer components {
-  .list {
-    @apply;
+  .footer-links {
+    @apply text-white flex flex-col gap-2 text-xs;
   }
 }
